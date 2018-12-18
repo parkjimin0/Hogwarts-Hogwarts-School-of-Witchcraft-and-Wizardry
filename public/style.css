@@ -7,6 +7,24 @@
   box-sizing: border-box;
   font-family: arial, sans-serif;
 }
+.navbar-custom {
+  background-color: darkred;
+}
+
+/* change the brand and text color */
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: rgba(255, 255, 255, 0.8);
+}
+/* change the link color */
+.navbar-custom .navbar-nav .nav-link {
+  color: rgba(255, 255, 255, 0.5);
+}
+/* change the color of active or hovered links */
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ffffff;
+}
 
 body {
   background: linear-gradient(#ffffff, #c0c0c0);
@@ -16,18 +34,19 @@ body {
   width: 100vw;
 }
 
-nav {
-  align-items: center;
-  background-color: #333333;
-  color: #c0c0c0;
-  display: flex;
-  height: 80px;
-  padding: 10px;
-}
-
 main {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.greeting {
+  text-align: center;
+  font-size: 50px;
+  padding: 30px;
+}
+
+.homeImage {
+  width: 100vw;
 }
