@@ -1,79 +1,100 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-const NavBar = () => {
-  return (
-    <nav className="navbar sticky-top navbar-expand-lg navbar-light ">
-      <h1 className="navbar-brand">HSW</h1>
-      <button
-        className="navbar-toggler"
-        type="button"
-        data-toggle="collapse"
-        data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span className="navbar-toggler-icon" />
-      </button>
+class NavBar extends Component {
+  update() {
+    if (this.props.student.length > 1) {
+      return (
+        <li className="nav-item active">
+          <Link to="/profile" className="nav-link">
+            My Profile
+          </Link>
+        </li>
+      );
+    }
+  }
+  render() {
+    console.log('do we have it?', this.props.student);
+    return (
+      <nav className="navbar navbar-custom sticky-top navbar-expand-lg  ">
+        <h1 className="navbar-brand">HSW</h1>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span className="navbar-toggler-icon" />
+        </button>
 
-      <div className="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <Link to="/" className="nav-link">
-              Home
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/admissions" className="nav-link">
-              Sorting Hat Admissions
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/campuses" className="nav-link">
-              Houses
-            </Link>
-          </li>
-          <li className="nav-item dropdown">
-            <a
-              className="nav-link dropdown-toggle"
-              href="#"
-              id="navbarDropdown"
-              role="button"
-              data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >
-              More Info
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a className="dropdown-item" href="/university-life">
-                University Life
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav mr-auto">
+            <li className="nav-item active">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/admissions" className="nav-link">
+                Sorting Hat Admissions
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="/campuses" className="nav-link">
+                Houses
+              </Link>
+            </li>
+
+            <li className="nav-item active">
+              <Link to="/login" className="nav-link">
+                Login
+              </Link>
+            </li>
+            {this.update()}
+            <li className="nav-item dropdown">
+              <a
+                className="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                More Info
               </a>
-              <a className="dropdown-item" href="/programs">
-                Programs
-              </a>
-              <div className="dropdown-divider" />
-              <a className="dropdown-item" href="/AboutUs">
-                Hogwarts: A History
-              </a>
-            </div>
-          </li>
-        </ul>
-        <form className="form-inline my-2 my-lg-0">
-          <input
-            className="form-control mr-sm-2"
-            type="search"
-            placeholder="Search"
-            aria-label="Search"
-          />
-          <button className="btn btn-outline-info my-2 my-sm-0" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
-    </nav>
-    /* <div className="container-fluid">
+              <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a className="dropdown-item" href="/university-life">
+                  University Life
+                </a>
+                <a className="dropdown-item" href="/programs">
+                  Programs
+                </a>
+                <div className="dropdown-divider" />
+                <a className="dropdown-item" href="/AboutUs">
+                  Hogwarts: A History
+                </a>
+              </div>
+            </li>
+          </ul>
+          <form className="form-inline my-2 my-lg-0">
+            <input
+              className="form-control mr-sm-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button className="btn btn-outline-info my-2 my-sm-0" type="submit">
+              Search
+            </button>
+          </form>
+        </div>
+      </nav>
+      /* <div className="container-fluid">
         <nav className="navbar-brand hidden-md hidden-sm hidden-xs" >
         </nav>
 
@@ -124,7 +145,14 @@ const NavBar = () => {
           <h1 className="title nav-item">HSW</h1>
         </nav>
       </div> */
-  );
+    );
+  }
+}
+
+const mapStateToProps = function(state) {
+  return {
+    student: state.studentReducer.student,
+  };
 };
 
-export default NavBar;
+export default connect(mapStateToProps)(NavBar);

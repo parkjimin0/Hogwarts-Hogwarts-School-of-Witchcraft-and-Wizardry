@@ -8,6 +8,7 @@ import singleCampus from './singleCampus';
 import singleStudent from './singleStudent';
 import StudentForm from './StudentForm';
 import CampusForm from './CampusForm';
+import Login from './loginForm';
 
 const Root = () => {
   return (
@@ -22,6 +23,7 @@ const Root = () => {
           <Route exact path="/students/:id" component={singleStudent} />
           <Route exact path="/StudentForm" component={StudentForm} />
           <Route exact path="/CampusForm" component={CampusForm} />
+          <Route exact path="/login" component={Login} />
         </Switch>
       </main>
     </div>

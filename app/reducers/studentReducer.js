@@ -68,11 +68,26 @@ export const fetchSingleStudent = id => async dispatch => {
   }
 };
 
+export const login = student => async dispatch => {
+  try {
+    const response = await axios.get('/api/students');
+    const allStudents = response.data;
+    const foundMatch = allStudents.filter(s => {
+      return student.username === s.email && student.password === s.password;
+    });
+
+    if (foundMatch.length) {
+      dispatch(gotOneStudent(foundMatch[0]));
+    }
+  } catch (err) {
+    console.error('You have have error with login');
+  }
+};
+
 export const addStudent = student => async dispatch => {
   try {
     const added = await axios.post('/api/students', student);
     const addedStudent = added.data;
-    console.log('what is addedStudent', addedStudent);
     dispatch(gotOneStudent(addedStudent));
   } catch (err) {
     console.error('You have an error with addStudent');

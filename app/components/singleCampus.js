@@ -10,7 +10,6 @@ class SingleCampus extends Component {
   }
   render() {
     const campus = this.props.campus;
-    console.log('what is campus.students', campus.students);
     return (
       <div>
         <img src={campus.imageUrl} />

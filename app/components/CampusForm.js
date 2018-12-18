@@ -31,28 +31,28 @@ class CampusForm extends Component {
         <label>
           Name:
           <input
-            type="text"
+            type="name"
             name="name"
             value={this.state.name}
             onChange={this.handleChange}
           />
           Address:
           <input
-            type="text"
+            type="address"
             name="address"
             value={this.state.address}
             onChange={this.handleChange}
           />
           Description:
           <input
-            type="text"
+            type="description"
             name="description"
             value={this.state.description}
             onChange={this.handleChange}
           />
           ImageUrl:
           <input
-            type="text"
+            type="imageUrl"
             name="imageUrl"
             value={this.state.imageUrl}
             onChange={this.handleChange}

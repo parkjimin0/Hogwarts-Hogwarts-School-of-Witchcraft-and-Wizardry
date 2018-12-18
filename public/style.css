@@ -1,20 +1,12 @@
-/*
- * Hi! I'm your stylesheet! I've got some sensible defaults here,
- * but feel free to change me to your heart's content!
- */
-
 * {
   box-sizing: border-box;
   font-family: arial, sans-serif;
-}
-.navbar-custom {
-  background-color: darkred;
 }
 
 /* change the brand and text color */
 .navbar-custom .navbar-brand,
 .navbar-custom .navbar-text {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255);
 }
 /* change the link color */
 .navbar-custom .navbar-nav .nav-link {
@@ -43,10 +35,31 @@ main {
 
 .greeting {
   text-align: center;
-  font-size: 50px;
-  padding: 30px;
+  font-size: 60px;
+  font-family: cursive;
+  padding: 5em;
+  color: whitesmoke;
 }
 
-.homeImage {
+#main {
+  background-image: url('https://www.fxguide.com/wp-content/uploads/2011/07/dneg_HP72-FP-00185.jpg');
+
+  /* Full height */
+  height: 100%;
   width: 100vw;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.size {
+  width: 50%;
+  margin: 100px;
+  color: white;
+}
+
+.form-text {
+  color: white;
 }

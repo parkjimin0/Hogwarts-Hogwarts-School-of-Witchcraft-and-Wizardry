@@ -16,6 +16,12 @@ module.exports = db.define('student', {
       isEmail: true,
     },
   },
+  password: {
+    type: Sequelize.STRING,
+    validate: {
+      isEmail: true,
+    },
+  },
   imageUrl: {
     type: Sequelize.STRING,
     defaultValue:
